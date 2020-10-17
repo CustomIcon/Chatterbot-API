@@ -9,7 +9,12 @@ cb = ChatBot('Bot')
 trainer = ChatterBotCorpusTrainer(cb)
 
 trainer.train(
-    'chatterbot.corpus.english'
+    'chatterbot.corpus.french',
+    'chatterbot.corpus.english',
+    'chatterbot.corpus.portuguese',
+    'chatterbot.corpus.german',
+    'chatterbot.corpus.spanish',
+    'chatterbot.corpus.italian'
 )
 
 @app.route('/bot', methods=['POST'])

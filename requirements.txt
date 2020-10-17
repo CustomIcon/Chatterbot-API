@@ -1,5 +1,5 @@
 Flask
 chatterbot
 chatterbot-corpus
-spacy
+spacy==2.2
 pyyaml==3.12

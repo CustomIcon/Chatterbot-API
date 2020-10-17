@@ -18,9 +18,12 @@ RUN pip install -r requirements.txt
 # copy the content of the local src directory to the working directory
 COPY . .
 
-ENV ENV true
-
-RUN python3 -m spacy download en
+RUN python3 -m spacy download en \
+    && python3 -m spacy download fr \
+    && python3 -m spacy download pt \
+    && python3 -m spacy download de \
+    && python3 -m spacy download es \
+    && python3 -m spacy download it_core_news_sm
 
 # Starting Worker
 CMD ["python3","app.py"]
