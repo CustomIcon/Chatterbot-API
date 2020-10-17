@@ -1,4 +1,5 @@
 Flask
 chatterbot
+chatterbot-corpus
 spacy
 pyyaml
