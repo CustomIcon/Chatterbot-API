@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from flask_ngrok import run_with_ngrok
 import logging
 
 app = Flask(__name__)
