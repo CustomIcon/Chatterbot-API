@@ -2,4 +2,4 @@ Flask
 chatterbot
 chatterbot-corpus
 spacy
-pyyaml
+pyyaml==3.12
