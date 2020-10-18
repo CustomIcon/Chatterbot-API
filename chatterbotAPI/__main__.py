@@ -2,7 +2,7 @@ import uvicorn
 import time
 from chatterbotAPI import app, cb
 
-@app.post('/')
+@app.get('/')
 async def chatbot_api(query: str):
     '''
     `https://endpoint.mannu.me/chatbot?query={query}`
