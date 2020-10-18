@@ -18,7 +18,6 @@ RUN python3 -m spacy download en \
     && python3 -m spacy download pt \
     && python3 -m spacy download de \
     && python3 -m spacy download es \
-    && python3 -m spacy download el \
     && python3 -m spacy download it_core_news_sm
 
 # Starting Worker
