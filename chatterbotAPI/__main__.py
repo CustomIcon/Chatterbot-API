@@ -2,10 +2,10 @@ import uvicorn
 import time
 from chatterbotAPI import app, cb
 
-@app.post('/bot')
+@app.post('/')
 async def chatbot_api(query: str):
     '''
-    `https://host/bot?message={query}`
+    `https://endpoint.mannu.me/chatbot?query={query}`
 
     **Gets response from RESTFUL Chatbot-API.**\n
     **A Succesful Request would return:**\n
