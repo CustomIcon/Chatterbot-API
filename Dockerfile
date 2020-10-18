@@ -2,10 +2,6 @@ FROM python:3.6-slim-stretch
 
 ENV PIP_NO_CACHE_DIR 1
 
-RUN sed -i.bak 's/us-west-2\.ec2\.//' /etc/apt/sources.list
-
-WORKDIR /root/
-
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
@@ -17,15 +13,15 @@ RUN pip install -r requirements.txt
 
 # copy the content of the local src directory to the working directory
 COPY . .
-
 RUN python3 -m spacy download en \
     && python3 -m spacy download fr \
     && python3 -m spacy download pt \
     && python3 -m spacy download de \
     && python3 -m spacy download es \
+    && python3 -m spacy download el \
     && python3 -m spacy download it_core_news_sm
 
 # Starting Worker
-CMD ["python3","app.py"]
+CMD ["uvicorn","main:app", "--host", "0.0.0.0"]
 
-EXPOSE 8090
+EXPOSE 8000

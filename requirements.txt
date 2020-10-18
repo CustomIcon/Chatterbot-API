@@ -1,4 +1,5 @@
-Flask
+fastapi
+uvicorn
 chatterbot
 chatterbot-corpus
 spacy==2.2
