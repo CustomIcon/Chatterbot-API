@@ -6,6 +6,7 @@ from os import environ
 from configparser import ConfigParser
 
 DB_URL = environ.get('DB_URL', None)
+PORT = environ.get('PORT', None)
 
 app = FastAPI()
 
