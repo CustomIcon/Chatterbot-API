@@ -6,6 +6,7 @@ from os import environ
 from configparser import ConfigParser
 
 DB_URL = environ.get('DB_URL', None)
+PORT = environ.get('PORT', None)
 
 app = FastAPI()
 
@@ -17,7 +18,7 @@ config.read(config_file)
 cb = ChatBot(
     'Bot',
     storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
-    database_uri=DB_URL if DB_URL is not None else config.get('database', 'mongo_url'),
+    database_uri=DB_URL or config.get('database', 'mongo_url'),
 )
 
 trainer = ChatterBotCorpusTrainer(cb)
