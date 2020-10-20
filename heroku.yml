@@ -1,5 +1,5 @@
 build: 
     docker:
-        worker: Dockerfile
+        web: Dockerfile
 run:
-    worker: python3 -m chatterbotAPI
+    web: python3 -m chatterbotAPI

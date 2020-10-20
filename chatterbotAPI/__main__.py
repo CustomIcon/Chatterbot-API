@@ -1,9 +1,7 @@
 import uvicorn
 import time
 from os import environ
-from chatterbotAPI import app, cb, config, config_file
-
-PORT = environ.get('PORT', 80)
+from chatterbotAPI import app, cb, config, config_file, PORT
 
 config.read(config_file)
 
@@ -64,4 +62,4 @@ async def chatbot_api_post(query: str):
 
 
 if __name__ == "__main__":
-    uvicorn.run("chatterbotAPI:app", host="0.0.0.0", port=PORT if PORT is not None else config.get('server', 'port'), log_level="info")
+    uvicorn.run("chatterbotAPI:app", host="0.0.0.0", port=int(PORT if PORT is not None else config.get('server', 'port')), log_level="info")
