@@ -1,0 +1,24 @@
+{
+    "name": "Chatbot",
+    "description": "https://github.com/pokurt/Chatterbot-API",
+    "keywords": [
+        "Telegram",
+        "Pyrogram",
+        "Chatbot",
+        "AI"
+    ],
+    "success_url": "https://endpoint.mannu.me/docs",
+    "repository": "https://github.com/pokurt/Chatterbot-API",
+    "stack": "container",
+    "env": {
+        "DB_URL": {
+            "description": "Get this value from https://cloud.mongodb.com",
+            "required": true
+        },
+        "PORT": {
+            "description": "Leave it as it is if you are using Heroku",
+            "required": true,
+            "value": 80
+        }
+    }
+}
