@@ -1,11 +1,16 @@
 import uvicorn
 import time
-from chatterbotAPI import app, cb
+from os import environ
+from chatterbotAPI import app, cb, config, config_file
+
+PORT = environ.get('PORT', 80)
+
+config.read(config_file)
 
 @app.get('/')
 async def chatbot_api_get(query: str):
     '''
-    ``GET` https://endpoint.mannu.me/chatbot?query={query}`
+    `GET` `https://endpoint.mannu.me?query={query}`
 
     **Gets response from RESTFUL Chatbot-API.**\n
     **A Succesful Request would return:**\n
@@ -33,7 +38,7 @@ async def chatbot_api_get(query: str):
 @app.post('/')
 async def chatbot_api_post(query: str):
     '''
-    ``POST` https://endpoint.mannu.me/chatbot?query={query}`
+    `POST` `https://endpoint.mannu.me?query={query}`
 
     **Gets response from RESTFUL Chatbot-API.**\n
     **A Succesful Request would return:**\n
@@ -59,4 +64,4 @@ async def chatbot_api_post(query: str):
 
 
 if __name__ == "__main__":
-    uvicorn.run("chatterbotAPI:app", host="0.0.0.0", port=8000, log_level="info")
+    uvicorn.run("chatterbotAPI:app", host="0.0.0.0", port=PORT if PORT is not None else config.get('server', 'port'), log_level="info")

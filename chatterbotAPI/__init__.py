@@ -13,6 +13,7 @@ config_file = f"chatbot.ini"
 config = ConfigParser()
 config.read(config_file)
 
+
 cb = ChatBot(
     'Bot',
     storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
